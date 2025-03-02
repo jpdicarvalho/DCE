@@ -1,6 +1,6 @@
-const express = require("express");
-const { graphqlHTTP } = require("express-graphql");
-const { buildSchema } = require("graphql");
+import express from "express";
+import { graphqlHTTP } from "express-graphql";
+import { buildSchema } from "graphql";
 
 // 1. Criando o Schema
 const schema = buildSchema(`
@@ -9,12 +9,12 @@ const schema = buildSchema(`
     }
 `);
 
-  // 2. Criando o Resolver
+// 2. Criando o Resolver
 const root = {
     hello: () => "Hello, World!",
 };
 
-  // 3. Inicializando o servidor Express com GraphQL
+// 3. Inicializando o servidor Express com GraphQL
 const app = express();
 app.use("/graphql", graphqlHTTP({
     schema: schema,
