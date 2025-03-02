@@ -4,24 +4,101 @@
 .header__SearchSupplie{
     padding: 15px;
 }
-
 .box__image{
     height: 65px;
     width: 116px;
     object-fit: cover;
 }
-
 .logo{
     height: 100%;
     width: 100%;
 }
-
 .section__main{
     display: flex;
     position: relative;
     justify-content: space-between;
     padding: 15px;
 }
+.input__box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+/* From Uiverse.io by marcel_4026 */ 
+.input-wrapper {
+    height: 45px;
+    border-radius: 20px;
+    padding: 5px;
+    box-sizing: content-box;
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    background: #fafafa;
+}
+.input {
+    width: 90%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding-left: 15px;
+    background-color: #fafafa;
+    color: white;
+    font-size: 1em;
+    border-radius: 8px;
+}
+.input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #fafafa inset;
+    -webkit-text-fill-color: #ffffff;
+}
+.Subscribe-btn {
+    height: 100%;
+    width: 95px;
+    border: none;
+    border-radius: 15px;
+    color: #fafafa;
+    cursor: pointer;
+    background-color: #00bf6a;
+    font-weight: 500;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s;
+}
+.Subscribe-btn:hover {
+    font-size: 77%;
+    transition: 300ms;
+}
+
+@keyframes jello-vertical {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    40% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    50% {
+        transform: scale3d(0.85, 1.15, 1);
+    }
+    65% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    75% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+.Subscribe-btn:active {
+    transform: scale(0.9);
+}
+  
 .get__started{
     display: flex;
     justify-content: center;
@@ -89,6 +166,7 @@
         position: relative;
         justify-content: center;
         width: 100%;
+        height: 100dvh;
     
     }
     .get__started {
@@ -103,11 +181,14 @@
     }
     .image__section {
         position: absolute;
+        height: 90%;
+        object-fit: cover;
         z-index: 1000;
 
     }
     .inner_image_section{
-        width: 80%;
-        height: 80%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
