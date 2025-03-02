@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Fornecedor {
+  id                 Int     @id @default(autoincrement())
+  nome               String
+  logo               String
+  estado             String
+  custo_por_kwh      Float
+  limite_minimo_kwh  Int
+
+  @@map("fornecedores") // Altera o nome da tabela no banco de dados
+}
