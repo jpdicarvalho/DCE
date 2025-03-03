@@ -1,4 +1,7 @@
-# DCE
+# DCE STATUS - Em desenvolvimento
+
+## Sobre o Projeto  
+Este projeto é uma **Single Page Application (SPA)** que permite aos usuários informarem seu consumo mensal de energia e encontrarem o fornecedor mais adequado para suas necessidades.  
 
 ## Como Rodar o Projeto Localmente?
 
