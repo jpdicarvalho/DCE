@@ -49,5 +49,5 @@ Parar os containers:
   ````
 Remover containers, imagens e volumes:
   ````sh
-   docker-compose down
+   docker-compose down --rmi all -v
   ````
