@@ -10,7 +10,7 @@ Antes de começar, **verifique se sua máquina possui os seguintes pré-requisit
 **Para usuários Windows:**  
 É recomendado instalar o **[Docker Desktop](https://www.docker.com/products/docker-desktop/)**, pois ele facilita a gestão dos containers.  
 
-### Com a etapa anterior concluída, siga os seguintes passos:   
+## Com a etapa anterior concluída, siga os seguintes passos:   
 ### **1️. Clonar o Repositório**  
 Abra um terminal e execute:  
   ```sh
@@ -38,4 +38,13 @@ Depois, para acessar a aplicação, use:
 Caso queira acessar apenas a API GraphQL, use:
   ````sh
    http://localhost:4000
+  ````
+## Comandos Úteis parar gerenciar os containers:
+Parar os containers:
+  ````sh
+   docker-compose down
+  ````
+Remover containers, imagens e volumes:
+  ````sh
+   docker-compose down
   ````
