@@ -24,9 +24,18 @@ Agora, dentro da pasta do projeto, execute:
   ````sh
   docker-compose up --build
   ````
-Isso irá:
+Isso irá basicamente:
   1. Criar e iniciar o banco de dados MySQL no Docker
   2. Rodar as migrations do Prisma para criar as tabelas
   3. Popular o banco de dados com informações de teste
   4. Iniciar o backend (API GraphQL)
   5. Iniciar o frontend (React + Vite)
+
+Depois, para acessar a aplicação, use:
+  ````sh
+   http://localhost:5173
+  ````
+Caso queira acessar apenas a API GraphQL, use:
+  ````sh
+   http://localhost:4000
+  ````
