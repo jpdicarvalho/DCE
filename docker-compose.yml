@@ -1,9 +1,31 @@
-version: "3.8"
-
 services:
+  mysql:
+    image: mysql:8
+    container_name: mysql_clarke
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: clarke_energia
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    networks:
+      - app_network
+    volumes:
+      - mysql_data:/var/lib/mysql
+
   backend:
     build: 
       context: ./backend 
+    container_name: dce-backend
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      - NODE_ENV=development
+      - PORT=4000
+      - DATABASE_URL=mysql://user:password@mysql:3306/clarke_energia
     ports:
       - "4000:4000"
     networks:
@@ -11,19 +33,20 @@ services:
     volumes:
       - ./backend:/app
       - /app/node_modules
-    environment:
-      - NODE_ENV=development 
-      - PORT=4000
+    command: >
+      sh -c "npx prisma migrate deploy && npx tsx prisma/seed.ts && node ./dist/index.js"
 
   frontend:
     build: 
       context: ./frontend
+    container_name: dce-frontend
+    restart: always
+    depends_on:
+      - backend
     ports:
       - "5173:5173"  
     networks:
       - app_network
-    depends_on:
-      - backend
     volumes:
       - ./frontend:/app
       - /app/node_modules
@@ -31,3 +54,6 @@ services:
 networks:
   app_network:
     driver: bridge
+
+volumes:
+  mysql_data:

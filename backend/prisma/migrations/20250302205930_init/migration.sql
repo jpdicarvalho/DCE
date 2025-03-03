@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE `Fornecedor` (
+CREATE TABLE `fornecedores` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `nome` VARCHAR(191) NOT NULL,
     `logo` VARCHAR(191) NOT NULL,

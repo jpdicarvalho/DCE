@@ -1,23 +1,23 @@
-# Imagem oficial do Node.js otimizada para produção
-FROM node:20-alpine
+# Usa a imagem oficial do Node.js como base
+FROM node:20
 
-# Diretório de trabalho dentro do container
+# Define o diretório de trabalho dentro do container
 WORKDIR /app
 
-# Copia apenas os arquivos necessários para instalar as dependências
-COPY package.json package-lock.json tsconfig.json ./
+# Copia apenas os arquivos package.json e package-lock.json para instalar as dependências
+COPY package.json package-lock.json ./
 
-# Instala as dependências
-RUN npm ci --only=production
+# Instala TODAS as dependências, incluindo as de desenvolvimento
+RUN npm install --include=dev
 
-# Copia todo o código para o container
+# Copia o restante do código para o container
 COPY . .
 
-# Compila o TypeScript
-RUN npm run compile
+# Gera o Prisma Client para garantir compatibilidade com o ambiente do container
+RUN npx prisma generate
 
-# Expõe a porta que o backend usa
+# Expõe a porta 4000 para acessar a API
 EXPOSE 4000
 
-# Comando para iniciar o servidor (executa o código já compilado)
-CMD ["node", "dist/index.js"]
+# Comando para iniciar o servidor
+CMD ["node", "./dist/index.js"]
