@@ -10,8 +10,10 @@ Antes de começar, **verifique se sua máquina possui os seguintes pré-requisit
  - **[Docker](https://www.docker.com/get-started/)**  
  - **[Docker Compose](https://docs.docker.com/compose/install/)**   
 
-## Com a etapa anterior concluída, siga os seguintes passos:   
-### **1️. Clonar o Repositório**  
+Com a etapa anterior concluída, siga os seguintes passos: 
+
+**1️. Clonar o Repositório**
+
 Abra um terminal e execute:  
   ```sh
   git clone https://github.com/seu-usuario/dce-clarke.git
