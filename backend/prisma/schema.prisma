@@ -16,5 +16,30 @@ model Fornecedor {
   custo_por_kwh      Float
   limite_minimo_kwh  Int
 
-  @@map("fornecedores") // Altera o nome da tabela no banco de dados
+  avaliacoes         Avaliacao[]  // Relacionamento com avaliações
+  clientesAtendidos  ClienteAtendido? // Relacionamento 1-1 com Clientes Atendidos
+
+  @@map("fornecedores") // Nome real da tabela no banco
+}
+
+model Avaliacao {
+  id            Int     @id @default(autoincrement())
+  fornecedorId  Int
+  nota          Float   @default(0.0) // Nota da avaliação (ex: 4.5)
+  comentario    String? // Comentário opcional do cliente
+  data          DateTime @default(now()) // Data da avaliação
+
+  fornecedor    Fornecedor @relation(fields: [fornecedorId], references: [id], onDelete: Cascade)
+
+  @@map("avaliacoes") // Nome real da tabela no banco
+}
+
+model ClienteAtendido {
+  id            Int     @id @default(autoincrement())
+  fornecedorId  Int     @unique // Um fornecedor tem um único número de clientes atendidos
+  quantidade    Int     @default(0) // Número total de clientes atendidos
+
+  fornecedor    Fornecedor @relation(fields: [fornecedorId], references: [id], onDelete: Cascade)
+
+  @@map("clientes_atendidos") // Nome real da tabela no banco
 }
