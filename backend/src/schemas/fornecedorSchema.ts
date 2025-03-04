@@ -6,9 +6,9 @@ export const typeDefs = `#graphql
         estado: String!
         custo_por_kwh: Float!
         limite_minimo_kwh: Int!
-        clientesAtendidos: Int
-        avaliacaoMedia: Float
         avaliacoes: [Avaliacao]
+        avaliacaoMedia: Float
+        clientesAtendidos: Int # Adicionamos o número total de clientes atendidos
     }
 
     type Avaliacao {

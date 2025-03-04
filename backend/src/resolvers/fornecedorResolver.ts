@@ -8,13 +8,8 @@ export const resolvers = {
             }
 
             const fornecedores = await prisma.fornecedor.findMany({
-                where: {
-                    limite_minimo_kwh: { lte: consumo }
-                },
-                include: {
-                    avaliacoes: true,
-                    clientesAtendidos: true,
-                }
+                where: { limite_minimo_kwh: { lte: consumo } },
+                include: { avaliacoes: true, clientesAtendidos: true }, // Incluímos clientesAtendidos
             });
 
             return fornecedores.map(fornecedor => ({

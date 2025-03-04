@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
   binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
@@ -9,37 +9,34 @@ datasource db {
 }
 
 model Fornecedor {
-  id                 Int     @id @default(autoincrement())
-  nome               String
-  logo               String
-  estado             String
-  custo_por_kwh      Float
-  limite_minimo_kwh  Int
+  id                Int              @id @default(autoincrement())
+  nome              String
+  logo              String
+  estado            String
+  custo_por_kwh     Float
+  limite_minimo_kwh Int
+  avaliacoes         Avaliacao[]
 
-  avaliacoes         Avaliacao[]  // Relacionamento com avaliações
-  clientesAtendidos  ClienteAtendido? // Relacionamento 1-1 com Clientes Atendidos
-
-  @@map("fornecedores") // Nome real da tabela no banco
+  @@map("fornecedores")
 }
 
 model Avaliacao {
-  id            Int     @id @default(autoincrement())
-  fornecedorId  Int
-  nota          Float   @default(0.0) // Nota da avaliação (ex: 4.5)
-  comentario    String? // Comentário opcional do cliente
-  data          DateTime @default(now()) // Data da avaliação
+  id           Int        @id @default(autoincrement())
+  fornecedorId Int
+  nota         Float      @default(0)
+  comentario   String?
+  data         DateTime   @default(now())
+  fornecedor   Fornecedor @relation(fields: [fornecedorId], references: [id], onDelete: Cascade)
 
-  fornecedor    Fornecedor @relation(fields: [fornecedorId], references: [id], onDelete: Cascade)
-
-  @@map("avaliacoes") // Nome real da tabela no banco
+  @@index([fornecedorId], map: "avaliacoes_fornecedorId_fkey")
+  @@map("avaliacoes")
 }
 
 model ClienteAtendido {
-  id            Int     @id @default(autoincrement())
-  fornecedorId  Int     @unique // Um fornecedor tem um único número de clientes atendidos
-  quantidade    Int     @default(0) // Número total de clientes atendidos
+  id           Int        @id @default(autoincrement())
+  fornecedorId Int        @unique
+  quantidade   Int        @default(0)
+  fornecedor   Fornecedor @relation(fields: [fornecedorId], references: [id], onDelete: Cascade)
 
-  fornecedor    Fornecedor @relation(fields: [fornecedorId], references: [id], onDelete: Cascade)
-
-  @@map("clientes_atendidos") // Nome real da tabela no banco
+  @@map("clientes_atendidos")
 }
