@@ -100,8 +100,9 @@ function SearchSupplie () {
                     <div className='image__section'>
                         <img className='inner_image_section' src={image_section} alt="" />
                     </div>
-                </div>
 
+                    
+                </div>
                 {/* Exibindo os fornecedores */}
                 <div className="result__section">
                     {loading && <p>Buscando fornecedores...</p>}
@@ -111,7 +112,7 @@ function SearchSupplie () {
                         
                         <div key={fornecedor.id} className="fornecedor__card">
                             <div className="box__fornecedor__logo">
-                                <img src={image_example} alt={fornecedor.nome} className="fornecedor__logo"/>
+                                <img src={`https://d15o6h0uxpz56g.cloudfront.net/${fornecedor.logo}`} alt={fornecedor.nome} className="fornecedor__logo"/>
                             </div>
 
                             <div className="box__fornecedor__information">
@@ -149,8 +150,9 @@ function SearchSupplie () {
                                     </div>
                                     
 
-                                    <button>
-                                        aa
+                                    <button className="btn__fake">
+                                        <IoIosArrowRoundForward className="icon__IoIosArrowRoundForward in__btn__fake"/>
+
                                     </button>
                                 </div>
 
