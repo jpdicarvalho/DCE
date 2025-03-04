@@ -133,6 +133,91 @@
     width: 100%;
     height: 100%;
 }
+.fornecedor__card{
+    width: 350px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-radius: 15px;
+
+}
+.box__fornecedor__logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 170px;
+    width: 100%;
+}
+.fornecedor__logo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.box__fornecedor__information{
+    border: none;
+    border-top: 1px solid rgba(128, 128, 128, 0.219);
+    background: #f6f6f6;
+    padding: 10px;
+    color: black;
+}
+.box__rating{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 165px;
+}
+.text__rating{
+    font-size: 14px;
+    color: gray;
+}
+.icon__MdOutlineStar{
+    font-size: 18px;
+    margin-bottom: 2px;
+    color: gold;
+}
+.container__insights{
+    display: flex;
+    justify-content: space-between;
+}
+.box__insights{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px 3px 3px 0px;
+    border-radius: 20px;
+}
+.icon__insights{
+    font-size: 30px;
+    color: black;
+    padding: 5px;
+}
+.text__insights{
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+}
+.bottom__card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    background: red;
+}
+.box__value__kwh{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: yellow;
+}
+.text__kwh{
+    padding-top: 3px;
+    font-size: 12px;
+}
+
 
 @keyframes jello-vertical {
     0% {

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Card Eólica Brasil</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F5F5F5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      width: 320px;
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+    }
+
+    /* Cabeçalho */
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .location {
+      font-size: 12px;
+      color: #888;
+      margin-left: 8px;
+    }
+
+    .rating {
+      font-weight: bold;
+      font-size: 14px;
+      color: #4CAF50; /* Sugestão */
+    }
+
+    /* Seção de estatísticas */
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .stats-item {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      margin-right: 8px;
+    }
+    .stats-item:last-child {
+      margin-right: 0;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+
+    .stats-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stats-label {
+      font-size: 12px;
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 2px;
+    }
+
+    .stats-value {
+      font-size: 14px;
+      color: #333;
+    }
+
+    /* Preço */
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      text-align: right;
+    }
+
+    .per-kwh {
+      font-size: 12px;
+      color: #777;
+      margin-left: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Cabeçalho -->
+    <div class="card-header">
+      <div>
+        <span class="card-title">Eólica Brasil</span>
+        <span class="location">● BA</span>
+      </div>
+      <div class="rating">4.3 (422)</div>
+    </div>
+
+    <!-- Seção de Estatísticas (Limite mínimo + Clientes atendidos) -->
+    <div class="stats">
+      <div class="stats-item">
+        <!-- Substitua 'icon-limit.png' por um ícone real, se desejar -->
+        <img src="icon-limit.png" alt="Ícone Limite" class="icon" />
+        <div class="stats-info">
+          <span class="stats-label">Limite mínimo</span>
+          <span class="stats-value">18000 kWh</span>
+        </div>
+      </div>
+
+      <div class="stats-item">
+        <!-- Substitua 'icon-clients.png' por um ícone real, se desejar -->
+        <img src="icon-clients.png" alt="Ícone Clientes" class="icon" />
+        <div class="stats-info">
+          <span class="stats-label">Clientes atendidos</span>
+          <span class="stats-value">120</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Preço -->
+    <div class="price">
+      R$ 0.35
+      <span class="per-kwh">/kWh</span>
+    </div>
+  </div>
+</body>
+</html>
